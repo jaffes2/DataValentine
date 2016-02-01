@@ -9,7 +9,25 @@
       xfbml      : true,
       version    : 'v2.5'
     });
+
+     // *** here is my code ***
+    if (typeof facebookInit == 'function') {
+        facebookInit();
+    }
   };
+
+function facebookInit(){
+  /* make the API call */
+  FB.api(
+      "/me/inbox",
+      function (response) {
+        if (response && !response.error) {
+          /* handle the result */
+          window.print("hello");
+        }
+      }
+  );
+}
 
   (function(d, s, id){
      var js, fjs = d.getElementsByTagName(s)[0];
@@ -19,16 +37,6 @@
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
 
-  /* make the API call */
-FB.api(
-    "/me/inbox",
-    function (response) {
-      if (response && !response.error) {
-        /* handle the result */
-        window.print("hello");
-      }
-    }
-);
 </script>
 
 <h1> Valentine in Data </h1>

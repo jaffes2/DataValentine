@@ -18,7 +18,20 @@
      js.src = "//connect.facebook.net/en_US/sdk.js";
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
+
+  /* make the API call */
+FB.api(
+    "/me/inbox",
+    function (response) {
+      if (response && !response.error) {
+        /* handle the result */
+        window.print("hello");
+      }
+    }
+);
 </script>
+
+<h1> Valentine in Data </h1>
 
 <div
   class="fb-like"
